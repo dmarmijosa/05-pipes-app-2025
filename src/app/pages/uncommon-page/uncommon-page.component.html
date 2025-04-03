@@ -7,4 +7,9 @@
     <p>Saludos {{cliente().name}}, es un placer {{cliente().gender | i18nSelect:invitationMap }} a nuestro evento.</p>
     <button class="btn btn-primary" (click)="changeClient()" >Cambiar cliente</button>
   </component-card>
+
+  <component-card title="i18nPluralPipe">
+    <p>Actualmente {{clientes().length | i18nPlural:clientesMap() }}</p>
+    <button class="btn btn-primary" [disabled]="clientes().length === 0" (click)="deleteClient()" >Borrar cliente</button>
+  </component-card>
 </div>
