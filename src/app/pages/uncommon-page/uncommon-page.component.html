@@ -4,12 +4,38 @@
 />
 <div class="mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
   <component-card title="i18nSelectPipe">
-    <p>Saludos {{cliente().name}}, es un placer {{cliente().gender | i18nSelect:invitationMap }} a nuestro evento.</p>
-    <button class="btn btn-primary" (click)="changeClient()" >Cambiar cliente</button>
+    <p>
+      Saludos {{ cliente().name }}, es un placer
+      {{ cliente().gender | i18nSelect : invitationMap }} a nuestro evento.
+    </p>
+    <button class="btn btn-primary" (click)="changeClient()">
+      Cambiar cliente
+    </button>
   </component-card>
 
   <component-card title="i18nPluralPipe">
-    <p>Actualmente {{clientes().length | i18nPlural:clientesMap() }}</p>
-    <button class="btn btn-primary" [disabled]="clientes().length === 0" (click)="deleteClient()" >Borrar cliente</button>
+    <p>Actualmente {{ clientes().length | i18nPlural : clientesMap() }}</p>
+    <button
+      class="btn btn-primary"
+      [disabled]="clientes().length === 0"
+      (click)="deleteClient()"
+    >
+      Borrar cliente
+    </button>
+  </component-card>
+
+  <component-card title="SlicePipe">
+    <b>Original</b>
+    <p class="text-primary">{{ clientes().join(", ") }}</p>
+    <b class="mt-2">Slice:0:2</b>
+    <p class="text-primary"> {{clientes() | slice:0:2 }}</p>
+    <b class="mt-2">Slice:1:2</b>
+    <p class="text-primary"> {{clientes() | slice:1:2 }}</p>
+    <b class="mt-2">Slice:1:3</b>
+    <p class="text-primary"> {{clientes() | slice:1:3 }}</p>
+    <b class="mt-2">Slice:3:4</b>
+    <p class="text-primary"> {{clientes() | slice:3:4 }}</p>
+    <b class="mt-2">Slice:0:-3</b>
+    <p class="text-primary"> {{clientes() | slice:0:-3 }}</p>
   </component-card>
 </div>
