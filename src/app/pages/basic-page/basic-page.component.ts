@@ -4,8 +4,9 @@ import {
   TitleCasePipe,
   UpperCasePipe,
 } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { TitlePipeComponent } from '../../components/title-pipe/title-pipe.component';
+import { availableLocale, LocaleService } from '../../services/locale.service';
 
 @Component({
   imports: [
@@ -18,6 +19,8 @@ import { TitlePipeComponent } from '../../components/title-pipe/title-pipe.compo
   templateUrl: './basic-page.component.html',
 })
 export default class BasicPageComponent {
+  localeService = inject(LocaleService);
+
   nameLower = signal('Danny');
   nameUpper = signal('DANNY');
   fullName = signal('DAnNY Armijos');
@@ -32,4 +35,8 @@ export default class BasicPageComponent {
       clearInterval(interval);
     });
   });
+
+  changeLocal(local: availableLocale) {
+    this.localeService.changeLocal(local);
+  }
 }

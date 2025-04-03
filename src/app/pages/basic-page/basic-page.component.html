@@ -68,15 +68,22 @@
     <div class="stat-desc">Jan 1st - Feb 1st</div>
   </div>
 </div>
-<div class="divider">
-
-</div>
+<div class="divider"></div>
 
 <div class="flex flex-row gap-2">
   <h1 class="text-2xl font-bold">
-    Locale Actual: <span class="badge badge-secondary">ES</span>
+    Locale Actual:
+    <span class="badge badge-secondary">
+      {{ localeService.getLocal | uppercase }}</span
+    >
   </h1>
-  <button class="btn btn-primary">Changer en français</button>
-  <button class="btn btn-primary">Change to English</button>
-  <button class="btn btn-primary">Cambiar a Español</button>
+  <button (click)="changeLocal('fr')" class="btn btn-primary">
+    Changer en français
+  </button>
+  <button (click)="changeLocal('en')" class="btn btn-primary">
+    Change to English
+  </button>
+  <button (click)="changeLocal('es')" class="btn btn-primary">
+    Cambiar a Español
+  </button>
 </div>
