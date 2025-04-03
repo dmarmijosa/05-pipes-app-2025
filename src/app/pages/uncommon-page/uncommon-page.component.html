@@ -38,4 +38,11 @@
     <b class="mt-2">Slice:0:-3</b>
     <p class="text-primary"> {{clientes() | slice:0:-3 }}</p>
   </component-card>
+
+  <component-card title="JsonPipe">
+    <pre class="text-primary">{{ clientes() | json }}</pre>
+    <pre class="text-primary">{{ cliente() | json }}</pre>
+    <pre class="text-primary">{{ clientes().join(', ')| json }}</pre>
+
+  </component-card>
 </div>
