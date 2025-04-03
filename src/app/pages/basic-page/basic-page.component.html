@@ -1,4 +1,7 @@
-<component-title-pipe title="Pipes Básicos" subTitle="Pipes incluidos en Angular" />
+<component-title-pipe
+  title="Pipes Básicos"
+  subTitle="Pipes incluidos en Angular"
+/>
 <div class="stats shadow w-full">
   <div class="stat place-items-center">
     <div class="stat-title">Lowercase Pipe</div>
@@ -20,5 +23,46 @@
         <div class="stat-desc">{{ fullName() }}</div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="stats text-center shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date Pipe</div>
+    <div class="stat-value">{{ customDate() | date }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date | long| GMT-5</div>
+    <div class="stat-value">{{ customDate() | date : "short" : "GMT-5" }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date |long| GMT-5</div>
+    <div class="stat-value">{{ customDate() | date : "long" : "GMT-5" }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="stats text-center shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date Pipe</div>
+    <div class="stat-value">{{ customDate() | date:"dd/mm/yyyy" }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date | long| GMT-5</div>
+    <div class="stat-value">{{ customDate() | date : "HH:mm:ss" : "GMT-5" }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Date |long| GMT-5</div>
+    <div class="stat-value">{{ customDate() | date : "EEE d, MMMM" }}</div>
+    <div class="stat-desc">Jan 1st - Feb 1st</div>
   </div>
 </div>
