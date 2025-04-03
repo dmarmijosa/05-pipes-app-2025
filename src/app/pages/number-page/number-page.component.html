@@ -1,1 +1,30 @@
-<p>number-page works!</p>,
+<component-title-pipe
+  title="Pipes numéricos"
+  subTitle="Pipes incluidos en Angular"
+/>
+<div class="stats shadow w-full">
+  <div class="stat place-items-center">
+    <div class="stat-title">Number: '1.2-2'</div>
+    <div class="stat-value">{{ totalSells() | number : "1.2-2" }}</div>
+    <div class="stat-desc">{{ totalSells() }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Number: '1.2-2'</div>
+    <div class="stat-value text-secondary">
+      {{ totalSells() + 1234 | number : "1.2-2" }}
+    </div>
+    <div class="stat-desc text-secondary">{{ totalSells() }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Currency</div>
+    <div class="stat-value">{{ totalSells() | currency : "EUR" }}</div>
+    <div class="stat-desc">{{ totalSells() }}</div>
+  </div>
+  <div class="stat place-items-center">
+    <div class="stat-title">Percent</div>
+    <div class="stat-value">{{ percent() | percent }}</div>
+    <div class="stat-desc">{{ percent() }}</div>
+  </div>
+</div>
