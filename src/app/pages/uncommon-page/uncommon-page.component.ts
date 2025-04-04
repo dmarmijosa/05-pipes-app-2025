@@ -6,7 +6,10 @@ import {
   I18nSelectPipe,
   JsonPipe,
   SlicePipe,
+  KeyValuePipe,
+  AsyncPipe,
 } from '@angular/common';
+import { interval, tap } from 'rxjs';
 
 const client1 = {
   name: 'Danny',
@@ -30,6 +33,8 @@ const client2 = {
     I18nPluralPipe,
     SlicePipe,
     JsonPipe,
+    KeyValuePipe,
+    AsyncPipe,
   ],
   templateUrl: './uncommon-page.component.html',
 })
@@ -73,4 +78,22 @@ export default class UncommonPageComponent {
       return prev;
     });
   }
+
+  profile = {
+    name: 'Fernando',
+    age: 35,
+    address: 'Ottawa, Canadá',
+  };
+
+  //Async Pipe
+  promiseValue = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Tenemos una promesa');
+      console.log('Promesa resuelta');
+    }, 3500);
+  });
+
+  myObsservableInterval = interval(2000).pipe(
+    tap((value) => console.log(value))
+  );
 }
