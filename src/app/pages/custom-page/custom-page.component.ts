@@ -7,6 +7,8 @@ import { HeroColorPipe } from '../../pipes/hero-color.pipe';
 import { HeroTextColorPipe } from '../../pipes/heroTextColor.pipe';
 import { TitleCasePipe } from '@angular/common';
 import { HeroCreatorPipe } from '../../pipes/heroCreator.pipe';
+import { HeroSortBYPipe } from '../../pipes/heroSortBY.pipe';
+import { Hero } from '../../interfaces/her.interface';
 
 @Component({
   imports: [
@@ -16,17 +18,14 @@ import { HeroCreatorPipe } from '../../pipes/heroCreator.pipe';
     HeroColorPipe,
     HeroTextColorPipe,
     TitleCasePipe,
-    HeroCreatorPipe
+    HeroCreatorPipe,
+    HeroSortBYPipe,
   ],
   templateUrl: './custom-page.component.html',
 })
 export default class CustomPageComponent {
   name = signal('angular');
   toggle = signal(false);
-
-  changeToggle() {
-    this.toggle.set(!this.toggle());
-  }
-
   heroes = signal(heroes);
+  sortBy = signal<keyof Hero | null>(null);
 }
